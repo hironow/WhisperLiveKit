@@ -47,7 +47,7 @@ pip install whisperlivekit
 #### Quick Start
 1. **Start the transcription server:**
    ```bash
-   wlk --model base --language en
+   wlk --model base --language ja
    ```
 
 2. **Open your browser** and navigate to `http://localhost:8000`. Start speaking and watch your words appear in real-time!
@@ -90,7 +90,7 @@ See  **Parameters & Configuration** below on how to use them.
 
 ```bash
 # Large model and translate from french to danish
-wlk --model large-v3 --language fr --target-language da
+wlk --model large-v3 --language ja --target-language ja
 
 # Diarization and server listening on */80 
 wlk --host 0.0.0.0 --port 80 --model medium --diarization --language fr
