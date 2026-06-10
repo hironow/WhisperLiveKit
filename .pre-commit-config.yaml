@@ -4,6 +4,18 @@
 #   Run:     prek run --all-files
 minimum_prek_version: "0.4.0"
 
+# This is a fork of QuentinFuxa/WhisperLiveKit; all source + docs below are
+# upstream's. Exclude them so the hooks never reformat or block on upstream
+# content (which would diverge the fork and break upstream-merge). Only repo
+# config and any future hironow-own files stay in scope.
+exclude: |
+  (?x)^(
+    whisperlivekit/|
+    chrome-extension/|
+    docs/
+  )
+
+
 repos:
   - repo: builtin
     hooks:
