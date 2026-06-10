@@ -1,0 +1,28 @@
+# prek (j178/prek) — pre-commit reimplementation. Patterned on hironow/dotfiles
+# but self-contained (no `just` dependency).
+#   Install: prek install -t pre-commit -t pre-push
+#   Run:     prek run --all-files
+minimum_prek_version: "0.4.0"
+
+repos:
+  - repo: builtin
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-added-large-files
+        args: ["--maxkb=1024"]
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.22.1
+    hooks:
+      - id: markdownlint-cli2
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.16
+    hooks:
+      - id: ruff-format
