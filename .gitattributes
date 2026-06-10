@@ -1,0 +1,27 @@
+# Cross-platform line-ending policy (Mac / Windows / WSL parity).
+# Authoritative EOL in the repo is LF for all text files. `eol=lf` overrides
+# each contributor's core.autocrlf so a Windows clone (Git-for-Windows default
+# autocrlf=true) still checks out LF, matching macOS/WSL/CI and eliminating
+# spurious whole-file CRLF diffs.
+* text=auto eol=lf
+
+# Windows-native scripts must stay CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets (incl. ASR audio / model blobs) — never EOL-converted.
+*.png  binary
+*.jpg  binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.zip  binary
+*.gz   binary
+*.wav  binary
+*.mp3  binary
+*.flac binary
+*.ogg  binary
+*.onnx binary
+*.pt   binary
+*.bin  binary
