@@ -1,8 +1,27 @@
-# prek (j178/prek) — pre-commit reimplementation. Patterned on hironow/dotfiles
-# but self-contained (no `just` dependency).
+# prek (j178/prek) — pre-commit reimplementation.
+#
+# NOTE: this repo is a FORK of QuentinFuxa/WhisperLiveKit with no hironow-own
+# source or docs yet — every tracked file is upstream's. Auto-formatting them
+# (ruff-format) or linting them (markdownlint) would diverge the fork and break
+# upstream merges, so only the safe Rust-native builtins are enabled, and the
+# exclude below keeps even those off all upstream code/docs. Re-add ruff-format
+# / markdownlint-cli2 (see hironow/dotfiles) once this fork carries own code.
 #   Install: prek install -t pre-commit -t pre-push
 #   Run:     prek run --all-files
 minimum_prek_version: "0.4.0"
+
+exclude: |
+  (?x)^(
+    whisperlivekit/|
+    chrome-extension/|
+    docs/|
+    tests/|
+    .*\.py$|
+    Dockerfile|
+    LICENSE$|
+    \.gitignore$|
+    .*\.md$
+  )
 
 repos:
   - repo: builtin
@@ -16,13 +35,3 @@ repos:
         args: ["--maxkb=1024"]
       - id: check-merge-conflict
       - id: detect-private-key
-
-  - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.22.1
-    hooks:
-      - id: markdownlint-cli2
-
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.16
-    hooks:
-      - id: ruff-format

@@ -1,6 +1,0 @@
-gitignore: true
-ignores:
-  - node_modules/**
-  - .venv/**
-  - "**/vendor/**"
-  - CHANGELOG.md
